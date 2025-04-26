@@ -5,13 +5,13 @@
 
 <%+header%>
 
-<h2 name="content"><%:关机%></h2>
+<h2 name="content"><%:PowerOff%></h2>
 <br />
 
-<p><%:关闭路由器%></p>
+<p><%:Shut down your router%></p>
 
 <%- local c = require("luci.model.uci").cursor():changes(); if c and next(c) then -%>
-	<p class="alert-message warning"><%:警告：没保存的改动在关机的时候都会丢失！%></p>
+	<p class="alert-message warning"><%:Warning: There are unsaved changes that will get lost on shutting down!%></p>
 <%- end -%>
 
 <hr />
@@ -37,7 +37,7 @@
 		img.onerror = check;
 		img.src = '<%=resource%>/icons/loading.gif?' + Math.random();
 
-		document.getElementById('poweroff-message').innerHTML = '<%:等待设备关闭...%>';
+		document.getElementById('poweroff-message').innerHTML = '<%:Waiting for device...%>';
 	}
 
 	function poweroff(button) {
@@ -48,11 +48,11 @@
 	}
 //]]></script>
 
-<input class="cbi-button cbi-button-apply" type="button" value="<%:设备关机%>" onclick="poweroff(this)" />
+<input class="cbi-button cbi-button-apply" type="button" value="<%:Perform PowerOff%>" onclick="poweroff(this)" />
 
 <p class="alert-message" style="display:none">
 	<img src="<%=resource%>/icons/loading.gif" alt="<%:Loading%>" style="vertical-align:middle" />
-	<span id="poweroff-message"><%:路由器关机中...%></span>
+	<span id="poweroff-message"><%:Router is shutting down...%></span>
 </p>
 
 <%+footer%>
